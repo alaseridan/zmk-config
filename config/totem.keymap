@@ -59,6 +59,61 @@
             bindings = <&qu>;
             key-positions = <27 28>;
         };
+
+        cmb_th {
+            bindings = <&mac_th>;
+            key-positions = <12 13>;
+        };
+
+        cmb_ch {
+            bindings = <&mac_ch>;
+            key-positions = <23 24>;
+        };
+
+        cmb_sh {
+            bindings = <&mac_sh>;
+            key-positions = <10 11>;
+        };
+
+        cmb_wh {
+            bindings = <&mac_wh>;
+            key-positions = <0 1>;
+        };
+
+        cmb_wh2 {
+            bindings = <&mac_wh>;
+            key-positions = <2 13>;
+        };
+
+        cmb_eq {
+            bindings = <&mac_eq>;
+            key-positions = <15 16>;
+        };
+
+        cmb_neq {
+            bindings = <&mac_neq>;
+            key-positions = <13 14>;
+        };
+
+        cmb_and {
+            bindings = <&mac_and>;
+            key-positions = <5 6>;
+        };
+
+        cmb_or {
+            bindings = <&mac_or>;
+            key-positions = <3 4>;
+        };
+
+        cmb_gt {
+            bindings = <&mac_gte>;
+            key-positions = <8 9>;
+        };
+
+        cmb_lt {
+            bindings = <&mac_lte>;
+            key-positions = <0 1>;
+        };
     };
 
     macros {
@@ -68,6 +123,125 @@
             bindings = <&kp Q &kp U>, <&macro_press>;
 
             label = "QU";
+        };
+
+        mac_th: mac_th {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp T &kp H>;
+            label = "MAC_TH";
+        };
+
+        mac_ch: mac_ch {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp C &kp H>;
+            label = "MAC_CH";
+        };
+
+        mac_gh: mac_gh {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp G &kp H>;
+            label = "MAC_GH";
+        };
+
+        mac_wh: wh {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp W &kp H>;
+            label = "WH";
+        };
+
+        mac_ph: mac_ph {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp P &kp H>;
+            label = "MAC_PH";
+        };
+
+        mac_sh: mac_sh {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp S &kp H>;
+            label = "MAC_SH";
+        };
+
+        mac_public: mac_public {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp P &kp U &kp B &kp L &kp I &kp C>;
+            label = "MAC_PUBLIC";
+        };
+
+        mac_private: mac_private {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp P &kp R &kp I &kp V &kp A &kp T &kp E>;
+            label = "MAC_PRIVATE";
+        };
+
+        mac_and: mac_and {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp AMPS &kp AMPS>;
+            label = "MAC_AND";
+        };
+
+        mac_or: mac_or {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp PIPE &kp PIPE>;
+            label = "MAC_OR";
+        };
+
+        mac_eq: mac_eq {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp EQUAL &kp EQUAL>;
+            label = "MAC_EQ";
+        };
+
+        mac_arrow: mac_arrow {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp EQUAL &kp GT>;
+            label = "MAC_ARROW";
+        };
+
+        mac_neq: man_neq {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp EXCL &kp EQUAL>;
+            label = "MAN_NEQ";
+        };
+
+        mac_gte: mac_gte {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp GT &kp EQUAL>;
+            label = "MAC_GTE";
+        };
+
+        mac_lte: mac_lte {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp EXCL &kp EQUAL>;
+            label = "MAC_LTE";
+        };
+
+        mac_string: mac_string {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp S &kp T &kp R &kp I &kp N &kp G>;
+            label = "MAC_STRING";
+        };
+
+        mac_strnge: mac_strnge {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp S &kp T &kp R &kp I &kp N &kp G &kp DOT &kp LS(E) &kp M &kp P &kp T &kp Y>;
+            label = "MAC_STRNGE";
         };
     };
 
@@ -97,10 +271,10 @@
         Sym {
             display-name = "Sym";
             bindings = <
-                &kp EXCL  &kp AT  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp PERCENT    &kp CARET             &kp AMPERSAND   &kp KP_ASTERISK  &kp HASH  &kp DOLLAR
-                &trans    &trans  &kp LEFT_BRACE        &kp RIGHT_BRACE        &trans         &kp NON_US_BACKSLASH  &kp UNDERSCORE  &kp MINUS        &kp PLUS  &kp EQUAL
-&studio_unlock  &trans    &trans  &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &trans         &kp GRAVE             &kp EQUAL       &trans           &trans    &kp SLASH   &kp HOME
-                                  &trans                &trans                 &trans         &trans                &trans          &trans
+                &kp EXCL     &kp AT        &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp PERCENT    &kp CARET             &kp AMPERSAND   &kp KP_ASTERISK  &kp HASH  &kp DOLLAR
+                &mac_string  &mac_strnge   &kp LEFT_BRACE        &kp RIGHT_BRACE        &trans         &kp NON_US_BACKSLASH  &kp UNDERSCORE  &kp MINUS        &kp PLUS  &kp EQUAL
+&studio_unlock  &mac_public  &mac_private  &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &trans         &kp GRAVE             &kp EQUAL       &mac_arrow       &mac_eq   &kp SLASH   &kp HOME
+                                           &trans                &trans                 &trans         &trans                &trans          &trans
             >;
         };
 
