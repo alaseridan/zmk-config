@@ -72,15 +72,10 @@
 
         cmb_sh {
             bindings = <&mac_sh>;
-            key-positions = <10 11>;
+            key-positions = <11 12>;
         };
 
         cmb_wh {
-            bindings = <&mac_wh>;
-            key-positions = <0 1>;
-        };
-
-        cmb_wh2 {
             bindings = <&mac_wh>;
             key-positions = <2 13>;
         };
@@ -114,14 +109,28 @@
             bindings = <&mac_lte>;
             key-positions = <0 1>;
         };
+
+        cmb_ph {
+            bindings = <&mac_ph>;
+            key-positions = <21 22>;
+        };
+
+        cmb_gh {
+            bindings = <&mac_gh>;
+            key-positions = <2 3>;
+        };
+
+        cmb_i {
+            bindings = <&kp RS(I)>;
+            key-positions = <16 17>;
+        };
     };
 
     macros {
         qu: qu {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp Q &kp U>, <&macro_press>;
-
+            bindings = <&kp Q &kp U>;
             label = "QU";
         };
 
