@@ -65,7 +65,7 @@
         qu: qu {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&qu &kp Q &kp U>, <&macro_press>;
+            bindings = <&kp Q &kp U>, <&macro_press>;
 
             label = "QU";
         };
@@ -77,10 +77,10 @@
         Base {
             display-name = "Base";
             bindings = <
-           &kp X             &kp W               &kp M             &kp G      &kp T        &kp SEMICOLON  &kp BACKSPACE  &kp PERIOD  &kp SQT              &kp DOUBLE_QUOTES
-           &hm LEFT_SHIFT C  &hm LEFT_CONTROL S  &kp N             &kp T      &kp G        &kp COMMA      &kp A          &kp E       &hm RIGHT_CONTROL I  &hm RIGHT_SHIFT H
-&lt 3 TAB  &kp P             &kp F               &kp L             &kp D      &kp V        &kp QUESTION   &kp U          &kp O       &kp Y                &kp B              &hm RIGHT_ALT Z
-                                                 &hm LEFT_GUI F13  &lt 1 ESC  &kp SPACE    &kp R          &lt 2 ENTER    &kp F13
+           &kp X             &kp W               &kp M         &kp G      &kp J        &kp SEMICOLON  &kp BACKSPACE  &kp PERIOD  &kp SQT              &kp DOUBLE_QUOTES
+           &hm LEFT_SHIFT C  &hm LEFT_CONTROL S  &kp N         &kp T      &kp K        &kp COMMA      &kp A          &kp E       &hm RIGHT_CONTROL I  &hm RIGHT_SHIFT H
+&lt 3 TAB  &kp P             &kp F               &kp L         &kp D      &kp V        &kp QUESTION   &kp U          &kp O       &kp Y                &kp B              &hm RIGHT_ALT Z
+                                                 &kp LEFT_GUI  &lt 1 ESC  &kp SPACE    &kp R          &lt 2 ENTER    &kp F13
             >;
         };
 
