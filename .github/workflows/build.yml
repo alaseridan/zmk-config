@@ -4,7 +4,7 @@ jobs:
   inject:
     runs-on: ubuntu-latest
     outputs:
-      modified_config_path: ${{ github.workspace }}/config
+      modified_config_path: ${{ steps.set_output.outputs.modified_config_path }}
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
@@ -20,7 +20,6 @@ jobs:
         id: set_output
         run: |
           echo "modified_config_path=${{ github.workspace }}/config" >> $GITHUB_ENV
-          echo "::set-output modified_config_path=${{ github.workspace }}/config" 
 
   build:
     needs: inject
