@@ -4,7 +4,7 @@ jobs:
   inject:
     runs-on: ubuntu-latest
     outputs:
-      config_path: ${{ github.workspace }}
+      modified_config_path: ${{ github.workspace }}/config
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
@@ -19,11 +19,11 @@ jobs:
       - name: Set Output for Config Path
         id: set_output
         run: |
-          echo "config_path=${{ github.workspace }}" >> $GITHUB_ENV
-          echo "::set-output name=${{ github.workspace }}"  # Set the output for the build job
+          echo ""modified_config_path=${{ github.workspace }}/config" >> $GITHUB_ENV
+          echo "::set-output modified_config_path=${{ github.workspace }}/config" 
 
   build:
     needs: inject
     uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main  # Reference the reusable workflow here
     with:
-      config_path: ${{ needs.inject.outputs.config_path }}
+      config_path: ${{ needs.inject.outputs.modified_config_path }}
