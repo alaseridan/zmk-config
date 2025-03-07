@@ -4,15 +4,10 @@ jobs:
   inject:
     runs-on: ubuntu-latest
     outputs:
-      config_path: ${{ steps.inject.outputs.config_path }}
+      config_path: ${{ github.workspace }}
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
-
-      - name: Prepare Processed Config Directory
-        run: |
-          mkdir processed-config
-          cp -r * processed-config/  # Copy everything, including build.yaml and other files
 
       - name: Inject Secret into Overlay
         id: inject
@@ -23,11 +18,11 @@ jobs:
       - name: Set Output for Config Path
         id: set_output
         run: |
-          echo "config_path=processed-config" >> $GITHUB_ENV
-          echo "::set-output name=config_path::processed-config"  # Set the output for the build job
+          echo "config_path=${{ github.workspace }}" >> $GITHUB_ENV
+          echo "::set-output name=${{ github.workspace }}"  # Set the output for the build job
 
   build:
     needs: inject
     uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main  # Reference the reusable workflow here
     with:
-      config_path: .  # Use the top-level directory
+      config_path: ${{ needs.inject.outputs.config_path }}
