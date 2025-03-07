@@ -1,19 +1,43 @@
 on: [push, pull_request, workflow_dispatch]
 
 jobs:
+  inject:
+    runs-on: ubuntu-latest
+    outputs:
+      config_path: ${{ steps.inject.outputs.config_path }}
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Prepare Processed Config Directory
+        run: |
+          mkdir processed-config
+          cp -r * processed-config/  # Copy everything, including build.yaml and other files
+
+      - name: Inject Secret into Overlay
+        id: inject
+        run: |
+          PASSWORD=$(echo '${{ secrets.MACRO_PASSWORD }}' | sed 's/./\&kp \0, /g' | sed 's/ $//')
+          sed -i "s|<PASSWORD_MACRO>|${PASSWORD}|g" processed-config/password-overlay.dtsi
+
+      - name: Set Output for Config Path
+        id: set_output
+        run: |
+          echo "config_path=processed-config" >> $GITHUB_ENV
+          echo "::set-output name=config_path::processed-config"  # Set the output for the build job
+
   build:
+    needs: inject
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Inject Secret into Overlay
+      - name: Copy Processed Config
         run: |
-          cp config/password-overlay.dtsi.template config/password-overlay.dtsi
-          PASSWORD=$(echo '${{ secrets.MACRO_PASSWORD }}' | sed 's/./\&kp \0, /g' | sed 's/ $//')
-          sed -i "s|<PASSWORD_MACRO>|${PASSWORD}|g" config/password-overlay.dtsi
+          cp -r ${{ needs.inject.outputs.config_path }}/* .  # Copy everything from processed-config to the current directory
 
       - name: Build with ZMK
         uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
         with:
-          config_path: config
+          config_path: .  # Use the top-level directory
