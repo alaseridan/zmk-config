@@ -13,7 +13,7 @@ jobs:
         id: inject
         run: |
           PASSWORD=$(echo '${{ secrets.MACRO_PASSWORD }}' | sed 's/./\&kp \0, /g' | sed 's/ $//')
-          sed -i "s|<PASSWORD_MACRO>|${PASSWORD}|g" processed-config/password-overlay.dtsi
+          sed -i "s|<PASSWORD_MACRO>|${PASSWORD}|g" config/password-overlay.dtsi
 
       - name: Set Output for Config Path
         id: set_output
