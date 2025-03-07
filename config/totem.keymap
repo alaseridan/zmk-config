@@ -282,7 +282,7 @@
             bindings = <
                 &kp EXCL     &kp AT        &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp PERCENT    &kp CARET             &kp AMPERSAND   &kp KP_ASTERISK  &kp HASH  &kp DOLLAR
                 &mac_string  &mac_strnge   &kp LEFT_BRACE        &kp RIGHT_BRACE        &trans         &kp NON_US_BACKSLASH  &kp UNDERSCORE  &kp MINUS        &kp PLUS  &kp EQUAL
-&studio_unlock  &mac_public  &mac_private  &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &trans         &kp GRAVE             &kp EQUAL       &mac_arrow       &mac_eq   &kp SLASH   &kp HOME
+&studio_unlock  &mac_public  &mac_private  &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &trans         &kp GRAVE             &kp EQUAL       &mac_arrow       &mac_eq   &kp SLASH   &kp RIGHT_CONTROL
                                            &trans                &trans                 &trans         &trans                &trans          &trans
             >;
         };
