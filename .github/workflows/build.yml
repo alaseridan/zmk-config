@@ -1,18 +1,26 @@
 on: [push, pull_request, workflow_dispatch]
 
 jobs:
-  build:
-    uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
-    secrets: inherit
+  preprocess:
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
       - name: Inject Secret into Overlay
         run: |
-          mkdir -p ${{ github.workspace }}/config
-          cp config/password-overlay.dtsi.template ${{ github.workspace }}/config/password-overlay.dtsi
-          sed -i "s|<PASSWORD_MACRO>|$(echo '${{ secrets.MACRO_PASSWORD }}' | sed 's/./\&kp \0 /g')|g" ${{ github.workspace }}/config/password-overlay.dtsi
+          cp config/password-overlay.dtsi.template config/password-overlay.dtsi
+          sed -i "s|<PASSWORD_MACRO>|$(echo '${{ secrets.MACRO_PASSWORD }}' | sed 's/./\&kp \0 /g')|g" config/password-overlay.dtsi
 
-      - name: Set Overlay Variable
-        run: echo "extra_cmake_args=-DOVERLAY_CONFIG=${{ github.workspace }}/config/password-overlay.dtsi" >> $GITHUB_ENV
+      - name: Upload Config
+        uses: actions/upload-artifact@v4
+        with:
+          name: processed-config
+          path: config/
+
+  build:
+    needs: preprocess  # Wait for preprocess to finish
+    uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
+    with:
+      config_path: processed-config
+    secrets: inherit
