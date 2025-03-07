@@ -1,7 +1,7 @@
 on: [push, pull_request, workflow_dispatch]
 
 jobs:
-  preprocess:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
@@ -10,17 +10,10 @@ jobs:
       - name: Inject Secret into Overlay
         run: |
           cp config/password-overlay.dtsi.template config/password-overlay.dtsi
-          sed -i "s|<PASSWORD_MACRO>|$(echo '${{ secrets.MACRO_PASSWORD }}' | sed 's/./\&kp \0 /g')|g" config/password-overlay.dtsi
+          PASSWORD=$(echo '${{ secrets.MACRO_PASSWORD }}' | sed 's/./\&kp \0, /g' | sed 's/ $//')
+          sed -i "s|<PASSWORD_MACRO>|${PASSWORD}|g" config/password-overlay.dtsi
 
-      - name: Upload Config
-        uses: actions/upload-artifact@v4
+      - name: Build with ZMK
+        uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
         with:
-          name: processed-config
-          path: config/
-
-  build:
-    needs: preprocess  # Wait for preprocess to finish
-    uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
-    with:
-      config_path: processed-config
-    secrets: inherit
+          config_path: config
