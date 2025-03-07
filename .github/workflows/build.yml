@@ -28,16 +28,6 @@ jobs:
 
   build:
     needs: inject
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
-
-      - name: Copy Processed Config
-        run: |
-          cp -r ${{ needs.inject.outputs.config_path }}/* .  # Copy everything from processed-config to the current directory
-
-      - name: Build with ZMK
-        uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
-        with:
-          config_path: .  # Use the top-level directory
+    uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main  # Reference the reusable workflow here
+    with:
+      config_path: .  # Use the top-level directory
