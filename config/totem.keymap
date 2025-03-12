@@ -144,7 +144,13 @@
         mac_ch: mac_ch {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp C &kp H>;
+            bindings =
+                <&kp C>,
+                <&macro_release>,
+                <&kp RIGHT_SHIFT>,
+                <&macro_tap>,
+                <&kp H>;
+
             label = "MAC_CH";
         };
 
@@ -282,7 +288,7 @@
             bindings = <
                 &kp EXCL     &kp AT        &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp PERCENT    &kp CARET             &kp AMPERSAND   &kp KP_ASTERISK  &kp HASH  &kp DOLLAR
                 &mac_string  &mac_strnge   &kp LEFT_BRACE        &kp RIGHT_BRACE        &trans         &kp NON_US_BACKSLASH  &kp UNDERSCORE  &kp MINUS        &kp PLUS  &kp EQUAL
-&studio_unlock  &mac_public  &mac_private  &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &trans         &kp GRAVE             &kp EQUAL       &mac_arrow       &mac_eq   &kp SLASH   &kp HOME
+&studio_unlock  &mac_public  &mac_private  &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &trans         &kp GRAVE             &kp EQUAL       &mac_arrow       &mac_eq   &kp SLASH   &kp RIGHT_CONTROL
                                            &trans                &trans                 &trans         &trans                &trans          &trans
             >;
         };
