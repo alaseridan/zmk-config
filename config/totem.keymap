@@ -130,14 +130,24 @@
         qu: qu {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp Q &kp U>;
+            bindings = 
+                <&kp Q>,
+                <&macro_release>,
+                <&kp RIGHT_SHIFT>,
+                <&macro_tap>,
+                <&kp U>;
             label = "QU";
         };
 
         mac_th: mac_th {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp T &kp H>;
+            bindings = 
+                <&kp T>,
+                <&macro_release>,
+                <&kp RIGHT_SHIFT>,
+                <&macro_tap>,
+                <&kp H>;
             label = "MAC_TH";
         };
 
@@ -157,42 +167,72 @@
         mac_gh: mac_gh {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp G &kp H>;
+            bindings = 
+                <&kp G>,
+                <&macro_release>,
+                <&kp RIGHT_SHIFT>,
+                <&macro_tap>,
+                <&kp H>;
             label = "MAC_GH";
         };
 
         mac_wh: wh {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp W &kp H>;
+            bindings = 
+                <&kp W>,
+                <&macro_release>,
+                <&kp RIGHT_SHIFT>,
+                <&macro_tap>,
+                <&kp H>;
             label = "WH";
         };
 
         mac_ph: mac_ph {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp P &kp H>;
+            bindings = 
+                <&kp P>,
+                <&macro_release>,
+                <&kp RIGHT_SHIFT>,
+                <&macro_tap>,
+                <&kp H>;
             label = "MAC_PH";
         };
 
         mac_sh: mac_sh {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp S &kp H>;
+            bindings = 
+                <&kp S>,
+                <&macro_release>,
+                <&kp RIGHT_SHIFT>,
+                <&macro_tap>,
+                <&kp H>;
             label = "MAC_SH";
         };
 
         mac_public: mac_public {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp P &kp U &kp B &kp L &kp I &kp C>;
+            bindings = 
+                <&kp P>,
+                <&macro_release>,
+                <&kp RIGHT_SHIFT>,
+                <&macro_tap>,
+                <&kp U &kp B &kp L &kp I &kp C>;
             label = "MAC_PUBLIC";
         };
 
         mac_private: mac_private {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp P &kp R &kp I &kp V &kp A &kp T &kp E>;
+            bindings = 
+                <&kp P>,
+                <&macro_release>,
+                <&kp RIGHT_SHIFT>,
+                <&macro_tap>,
+                <&kp R &kp I &kp V &kp A &kp T &kp E>;
             label = "MAC_PRIVATE";
         };
 
@@ -248,14 +288,24 @@
         mac_string: mac_string {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp S &kp T &kp R &kp I &kp N &kp G>;
+            bindings = 
+                <&kp S>,
+                <&macro_release>,
+                <&kp RIGHT_SHIFT>,
+                <&macro_tap>,
+                <&kp T &kp R &kp I &kp N &kp G>;
             label = "MAC_STRING";
         };
 
         mac_strnge: mac_strnge {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp S &kp T &kp R &kp I &kp N &kp G &kp DOT &kp LS(E) &kp M &kp P &kp T &kp Y>;
+            bindings = 
+                <&kp S>,
+                <&macro_release>,
+                <&kp RIGHT_SHIFT>,
+                <&macro_tap>,
+                <&kp T &kp R &kp I &kp N &kp G &kp DOT &kp LS(E) &kp M &kp P &kp T &kp Y>;
             label = "MAC_STRNGE";
         };
     };
