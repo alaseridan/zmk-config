@@ -122,7 +122,37 @@
 
         cmb_i {
             bindings = <&kp RS(I)>;
+            key-positions = <16 15>;
+        };
+
+        cmb_up {
+            bindings = <&kp UP_ARROW>;
+            key-positions = <7 17>;
+        };
+
+        cmb_left {
+            bindings = <&kp LEFT>;
             key-positions = <16 17>;
+        };
+
+        cmb_right {
+            bindings = <&kp RIGHT>;
+            key-positions = <17 18>;
+        };
+
+        cmb_down {
+            bindings = <&kp DOWN>;
+            key-positions = <17 28>;
+        };
+
+        cmb_home {
+            bindings = <&kp HOME>;
+            key-positions = <15 26>;
+        };
+
+        cmb_end {
+            bindings = <&kp END>;
+            key-positions = <16 27>;
         };
     };
 
@@ -130,24 +160,26 @@
         qu: qu {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = 
+            bindings =
                 <&kp Q>,
                 <&macro_release>,
                 <&kp RIGHT_SHIFT>,
                 <&macro_tap>,
                 <&kp U>;
+
             label = "QU";
         };
 
         mac_th: mac_th {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = 
+            bindings =
                 <&kp T>,
                 <&macro_release>,
                 <&kp RIGHT_SHIFT>,
                 <&macro_tap>,
                 <&kp H>;
+
             label = "MAC_TH";
         };
 
@@ -167,72 +199,78 @@
         mac_gh: mac_gh {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = 
+            bindings =
                 <&kp G>,
                 <&macro_release>,
                 <&kp RIGHT_SHIFT>,
                 <&macro_tap>,
                 <&kp H>;
+
             label = "MAC_GH";
         };
 
         mac_wh: wh {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = 
+            bindings =
                 <&kp W>,
                 <&macro_release>,
                 <&kp RIGHT_SHIFT>,
                 <&macro_tap>,
                 <&kp H>;
+
             label = "WH";
         };
 
         mac_ph: mac_ph {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = 
+            bindings =
                 <&kp P>,
                 <&macro_release>,
                 <&kp RIGHT_SHIFT>,
                 <&macro_tap>,
                 <&kp H>;
+
             label = "MAC_PH";
         };
 
         mac_sh: mac_sh {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = 
+            bindings =
                 <&kp S>,
                 <&macro_release>,
                 <&kp RIGHT_SHIFT>,
                 <&macro_tap>,
                 <&kp H>;
+
             label = "MAC_SH";
         };
 
         mac_public: mac_public {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = 
+            bindings =
                 <&kp P>,
                 <&macro_release>,
                 <&kp RIGHT_SHIFT>,
                 <&macro_tap>,
                 <&kp U &kp B &kp L &kp I &kp C>;
+
             label = "MAC_PUBLIC";
         };
 
         mac_private: mac_private {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = 
+            bindings =
                 <&kp P>,
                 <&macro_release>,
                 <&kp RIGHT_SHIFT>,
                 <&macro_tap>,
                 <&kp R &kp I &kp V &kp A &kp T &kp E>;
+
             label = "MAC_PRIVATE";
         };
 
@@ -288,24 +326,26 @@
         mac_string: mac_string {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = 
+            bindings =
                 <&kp S>,
                 <&macro_release>,
                 <&kp RIGHT_SHIFT>,
                 <&macro_tap>,
                 <&kp T &kp R &kp I &kp N &kp G>;
+
             label = "MAC_STRING";
         };
 
         mac_strnge: mac_strnge {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = 
+            bindings =
                 <&kp S>,
                 <&macro_release>,
                 <&kp RIGHT_SHIFT>,
                 <&macro_tap>,
                 <&kp T &kp R &kp I &kp N &kp G &kp DOT &kp LS(E) &kp M &kp P &kp T &kp Y>;
+
             label = "MAC_STRNGE";
         };
     };
