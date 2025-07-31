@@ -154,6 +154,16 @@
             bindings = <&kp END>;
             key-positions = <16 27>;
         };
+
+        cmb_dash {
+            bindings = <&kp MINUS>;
+            key-positions = <7 8>;
+        };
+
+        cmb_underscore {
+            bindings = <&kp UNDERSCORE>;
+            key-positions = <28 29>;
+        };
     };
 
     macros {
