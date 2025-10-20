@@ -162,7 +162,7 @@
 
         cmb_underscore {
             bindings = <&kp UNDERSCORE>;
-            key-positions = <28 29>;
+            key-positions = <6 7>;
         };
     };
 
@@ -404,8 +404,8 @@
             display-name = "Nav";
             bindings = <
         &bootloader  &trans  &trans  &trans  &to 4     &trans    &trans          &kp UP    &kp END    &kp LS(INSERT)
-        &kp CAPS     &trans  &trans  &trans  &trans    &kp HOME  &kp LEFT_ARROW  &kp DOWN  &kp RIGHT  &kp INS
-&trans  &trans       &trans  &trans  &trans  &trans    &trans    &kp END         &trans    &trans     &kp F20         &kp DELETE
+        &kp CAPS     &trans  &trans  &trans  &to 6     &kp HOME  &kp LEFT_ARROW  &kp DOWN  &kp RIGHT  &kp INS
+&trans  &trans       &trans  &trans  &trans  &to 0     &trans    &kp END         &trans    &trans     &kp F20         &kp DELETE
                              &trans  &trans  &trans    &trans    &trans          &trans
             >;
         };
@@ -427,6 +427,15 @@
         &kp L    &kp O         &kp Y         &kp K         &kp G     &kp F5         &trans         &trans  &trans  &trans
 &trans  &to 0    &trans        &trans        &trans        &trans    &trans         &trans         &trans  &trans  &trans           &kp LA(F4)
                                &kp J         &kp I         &kp M     &trans         &trans         &trans
+            >;
+        };
+
+        qwerty {
+            bindings = <
+        &kp Q             &kp W               &kp E   &kp R   &kp T     &kp Y   &kp U   &kp I      &kp O                &kp P
+        &hm LEFT_SHIFT A  &hm LEFT_CONTROL S  &kp D   &kp F   &kp G     &kp H   &kp J   &kp K      &hm RIGHT_CONTROL L  &hm RIGHT_SHIFT SEMI
+&trans  &kp Z             &kp X               &kp C   &kp V   &kp B     &kp N   &kp M   &kp COMMA  &kp DOT              &kp FSLH              &trans
+                                              &trans  &trans  &trans    &trans  &trans  &trans
             >;
         };
     };
